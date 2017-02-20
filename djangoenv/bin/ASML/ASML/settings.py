@@ -75,8 +75,13 @@ WSGI_APPLICATION = 'ASML.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+      #  'NAME': os.path.join(BASE_DIR, 'magistr'),
+        'NAME': 'magistr',
+        'USER': 'magistr',
+        'PASSWORD': 'mag2017',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
