@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>DJANGO</title>
+        <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
+</head>
+<body>
+    <h1><a href="/">Information page</a></h1>
+    {% block article %} {% endblock %}
+</body>
+</html>

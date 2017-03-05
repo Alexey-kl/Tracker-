@@ -3,16 +3,15 @@ from article.models import Article, Comments
 # Register your models here.
 
 class ArticleAdmin(admin.ModelAdmin):
-# tut ia pishy kolonki DB kotorse doljni otobragatsa v adminke
+# here specify the DB column that appears in the administration panel
     fields = ['article_title', 'article_text', 'article_date']
    # inlines = [ArticleInline]
     list_filter = ['article_date']
 
-
-# class dly gpokaza u redaktir komentov
+# class for view and change comments
 class ArticleInline(admin.StackedInline):
     model = Comments
-# extra - kol-vo komentov
+# extra - amount comments
     extra = 2
 
 admin.site.register(Article, ArticleAdmin)
