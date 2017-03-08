@@ -65,3 +65,5 @@ def addcomment(request, article_id):
             comment.comments_article = Article.objects.get(id=article_id)
             form.save()
     return redirect('/articles/get/%s/' % article_id)
+
+

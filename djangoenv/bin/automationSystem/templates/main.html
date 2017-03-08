@@ -5,9 +5,27 @@
 <meta charset="UTF-8">
     <title>DJANGO</title>
         <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
+    <style>
+   body{
+       /* Background color of web page */
+    background-color: #F5F5F5;
+   }
+   h2 {
+       /*Background color under the heading*/
+    background-color: #0000CD;
+       color: white;
+   }
+
+  </style>
 </head>
 <body>
-    <h1><a href="/">Information page</a></h1>
+<h2><a href="/">BELARUSIAN STATE UNIVERSITY OF INFORMATICS AND RADIOELECTRONICS</a></h2>
+
+<form>
+    <p><a href="magistrants/all/"><input type="button" value="Magistrants"></a></p>
+    {% block addMagistrants %} {% endblock %}
+</form>
+    <h1><a href="informationPage/">Information page</a></h1>
     {% block article %} {% endblock %}
 </body>
 </html>
