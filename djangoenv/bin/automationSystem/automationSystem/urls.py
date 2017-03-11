@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^basicview/', include('article.urls')),
     url(r'^magistrants/', include('addMagistrants.urls')),
+    url(r'^teachers/', include('addMagistrants.urls')),
     url(r'^', include('article.urls')),
 
 

@@ -3,10 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Magistrants</title>
+
 </head>
 <body>
-{% block addMagistrants %}
+
 <h1>TEST MAGISTRANTS</h1>
-{%  endblock %}
+<table border="1" width="100%" cellpadding="5">
+
+    <caption>Таблица магистрантов</caption>
+    <tr>
+    <th>ФИО</th>
+    <th>Год поступления</th>
+    <th>Год окончания</th>
+    <th>Шифр специальности</th>
+    <th>Название специальности</th>
+    <th>Форма обучения</th>
+    <th>Тип обучения</th>
+    <th>Научный руководитель</th>
+    <th>Состояние магистранта</th>
+    <th>Примечание</th>
+    </tr>
+{% for magistrant in magistrants %}
+    <tr>
+    <td>{{ magistrant.magistrant_name }}</td>
+    <td>{{ magistrant.magistrant_YearOfReceipt }}</td>
+    <td>{{ magistrant.magistrant_YearOfEnding }}</td>
+    <td>{{ magistrant.magistrant_NumberOfTheSpecialty }}</td>
+    <td>{{ magistrant.magistrant_NameOfSpeciality }}</td>
+    <td>{{ magistrant.magistrant_FormOfTraning }}</td>
+    <td>{{ magistrant.magistarnt_TypeOfTraning }}</td>
+    <td>{{ magistrant.magistrant_ScientificAdviser }}</td>
+    <td>{{ magistrant.magistrant_StatusMagistrant}}</td>
+    <td>{{ magistrant.magistrant_comment }}</td>
+        </tr>
+{% endfor %}
+</table>
 </body>
 </html>
