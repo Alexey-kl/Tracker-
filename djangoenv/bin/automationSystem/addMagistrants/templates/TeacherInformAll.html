@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>TEST TEACHER INFORM ALL</h1>
+<h2>ФИО {{ teacher.teacher_name }}</h2>
+<h2>Учёная степень {{ teacher.teacher_AcademicDegree }}</h2>
+    <h2>Учёное звание {{ teacher.teacher_AcademicRank }}</h2>
+    <h2>Основное место работы{{ teacher.teacher_work }}</h2>
+    <h2>Должность {{ teacher.teacher_position }}</h2>
+    <h2>Примечание {{ teacher.teacher_comment }}</h2>
+    <a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button" value="Редактировать преподавателя"></a>
+    <a href="/admin/addMagistrants/teacher/add/"><input type="submit" class="button" value="Добавить преподавателя"></a>
+
+<h3>Test</h3>
+<table border="1" width="100%" cellpadding="5">
+<tr>
+    <th>ФИО</th>
+    <th>Группа</th>
+    <th>Форма обучения</th>
+    <th>Тим обучения</th>
+    <th>Специальность</th>
+    <th>Форма выполниния учебной нагрузки</th>
+    <th>Нагрузка</th>
+    <th>Примечание</th>
+    </tr>
+{% for magistr in magistrant %}
+<tr>
+    <td>{{ magistr.magistrant_name }}</td>
+    <td>{{ magistr.magistrant_NameOfSpeciality}}</td>
+    <td>{{ magistr.magistrant_FormOfTraning }}</td>
+    <td>{{ magistr.magistarnt_TypeOfTraning }}</td>
+    <td>{{ magistr.magistrant_NameOfSpeciality }}</td>
+    <td> 2 </td>
+    <td> 3 </td>
+    <td>{{ magistr.magistrant_comment }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>

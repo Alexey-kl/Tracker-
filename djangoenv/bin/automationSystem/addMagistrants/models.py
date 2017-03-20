@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.utils import timezone
+
 # Create your models here.
 
 teacher_AcademicDegree_CHOICES = (
@@ -29,12 +31,15 @@ class Teacher(models.Model):
     class Meta():
         db_table = 'teacher'
     teacher_name = models.CharField(max_length=100, verbose_name="FIO teacher")
-    teacher_AcademicDegree = models.CharField(max_length=100, choices=teacher_AcademicDegree_CHOICES)
+    teacher_AcademicDegree = models.CharField(max_length=100, choices=teacher_AcademicDegree_CHOICES, )
     teacher_AcademicRank = models.CharField(max_length=100, choices=teacher_AcademicRank_CHOICES)
     teacher_work = models.CharField(max_length=100)
     teacher_position = models.CharField(max_length=100)
-    teacher_comment = models.CharField(max_length=400, default='DEFAULT VALUE')
+    teacher_comment = models.CharField(max_length=400, blank=True)
+    teacher_mag = models.ManyToManyField('Magistrant', blank=True, null=True,)
 
+    def __unicode__(self):
+        return '%s' % (self.teacher_name)
 
 
 magistrant_StatusMagistrant_CHOICES = (
@@ -58,13 +63,23 @@ class Magistrant(models.Model):
     class Meta():
         db_table = 'magistrant'
     magistrant_name = models.CharField(max_length=100, verbose_name="FIO magistrant")
-    magistrant_YearOfReceipt = models.DateTimeField()
-    magistrant_YearOfEnding = models.DateTimeField()
+    magistrant_YearOfReceipt = models.DateField(blank=True, null=True, verbose_name="God nachalo")
+    magistrant_YearOfEnding = models.DateField(blank=True, null=True, verbose_name="God okonchania")
     magistrant_NumberOfTheSpecialty = models.IntegerField(default=0)
     magistrant_NameOfSpeciality = models.CharField(max_length=300)
     magistrant_FormOfTraning = models.CharField(max_length=50, choices=magistrant_FormOfTraning_CHOIES)
     magistarnt_TypeOfTraning = models.CharField(max_length=50, choices=magistarnt_TypeOfTraning_CHOIES)
-    magistrant_ScientificAdviser = models.CharField(max_length=100)
     magistrant_StatusMagistrant = models.CharField(max_length=100, choices=magistrant_StatusMagistrant_CHOICES)
-    magistrant_comment = models.CharField(max_length=400, default='DEFAULT VALUE')
-    magistrant_teacher = models.ForeignKey(Teacher)
+    magistrant_comment = models.CharField(max_length=400, blank=True)
+    magistrant_ScientificAdviser = models.ForeignKey(Teacher)
+    magistrant_ThemeOfMagistrWork = models.CharField(max_length=100, blank=True)
+    magistrant_NumberOrder = models.CharField(max_length=15, blank=True)
+    magistrant_OrderFromDate = models.DateField(blank=True, null=True, verbose_name="Date Order")
+
+    def __unicode__(self):
+        return '%s' % (self.magistrant_name)
+
+
+
+
+

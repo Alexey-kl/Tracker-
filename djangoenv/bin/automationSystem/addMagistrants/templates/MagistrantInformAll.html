@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>TEST INFORM MAGISTRANT </h1>
+
+<h3> ФИО: {{ magistrant.magistrant_name }}</h3>
+<h3> Тема магистерской работы: {{ magistrant.magistrant_ThemeOfMagistrWork }} </h3>
+<h4>Приказ № {{ magistrant.magistrant_NumberOrder }} От {{ magistrant.magistrant_OrderFromDate }} </h4>
+{% block teacherName %}
+<h3> Преподаватель: {{ teacherName.teacher_name }}, {{ teacherName.teacher_AcademicDegree }}, {{ teacherName.teacher_AcademicRank }} </h3>
+
+{% endblock %}
+</body>
+</html>

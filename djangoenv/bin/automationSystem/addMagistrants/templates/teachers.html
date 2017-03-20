@@ -5,6 +5,29 @@
     <title>Teachers</title>
 </head>
 <body>
+
 <h1>TEST TEACHERS</h1>
+<table border="1" width="100%" cellpadding="5">
+
+    <caption>Таблица преподавателей</caption>
+    <tr>
+    <th>ФИО</th>
+    <th>Учёная степень</th>
+    <th>Учёное звание</th>
+    <th>Основное место работы</th>
+    <th>Должность</th>
+    <th>Примечание</th>
+    </tr>
+{% for teacher in teachers %}
+    <tr>
+        <td><a href="/added/teachers/infoTeacher/{{ teacher.id }}/">{{ teacher.teacher_name }}</a></td>
+    <td>{{ teacher.teacher_AcademicDegree }}</td>
+    <td>{{ teacher.teacher_AcademicRank }}</td>
+    <td>{{ teacher.teacher_work }}</td>
+    <td>{{ teacher.teacher_position }}</td>
+    <td>{{ teacher.teacher_comment }}</td>
+        </tr>
+{% endfor %}
+</table>
 </body>
 </html>

@@ -25,7 +25,7 @@
     </tr>
 {% for magistrant in magistrants %}
     <tr>
-    <td>{{ magistrant.magistrant_name }}</td>
+        <td><a href="/magistrants/all/infoMagistr/{{ magistrant.id }}/">{{ magistrant.magistrant_name }}</a></td>
     <td>{{ magistrant.magistrant_YearOfReceipt }}</td>
     <td>{{ magistrant.magistrant_YearOfEnding }}</td>
     <td>{{ magistrant.magistrant_NumberOfTheSpecialty }}</td>
