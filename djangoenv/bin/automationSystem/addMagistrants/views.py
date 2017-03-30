@@ -4,9 +4,10 @@ from models import Magistrant, Teacher
 from django.template.context_processors import csrf
 # Create your views here.
 
+#def magistrants(request):
+#    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.all()})
 def magistrants(request):
-    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.all()})
-
+    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.filter(magistrant_StatusMagistrant='study')})
 def teachers(request):
         return render_to_response('teachers.html', {'teachers': Teacher.objects.all()})
 
@@ -31,3 +32,7 @@ def TeacherMagistr(request, teacher_id=1):
     args['teacher'] = Teacher.objects.get(id=teacher_id)
     args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id)
     return render_to_response('TeacherInformAll.html', args)
+
+def sort(request):
+    Magistrant.objects.order_by("magistrant_name")
+    return redirect('/magistrants/all/')

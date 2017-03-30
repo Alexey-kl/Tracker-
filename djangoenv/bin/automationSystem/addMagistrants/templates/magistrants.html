@@ -12,7 +12,7 @@
 
     <caption>Таблица магистрантов</caption>
     <tr>
-    <th>ФИО</th>
+        <th><a href="/magistrants/all/"><input type="submit" class="button" value="ФИО"></a></th>
     <th>Год поступления</th>
     <th>Год окончания</th>
     <th>Шифр специальности</th>
@@ -23,7 +23,9 @@
     <th>Состояние магистранта</th>
     <th>Примечание</th>
     </tr>
+
 {% for magistrant in magistrants %}
+
     <tr>
         <td><a href="/magistrants/all/infoMagistr/{{ magistrant.id }}/">{{ magistrant.magistrant_name }}</a></td>
     <td>{{ magistrant.magistrant_YearOfReceipt }}</td>
@@ -33,10 +35,12 @@
     <td>{{ magistrant.magistrant_FormOfTraning }}</td>
     <td>{{ magistrant.magistarnt_TypeOfTraning }}</td>
     <td>{{ magistrant.magistrant_ScientificAdviser }}</td>
-    <td>{{ magistrant.magistrant_StatusMagistrant}}</td>
+    <td>{{ magistrant.magistrant_StatusMagistrant }}</td>
     <td>{{ magistrant.magistrant_comment }}</td>
         </tr>
+
 {% endfor %}
+
 </table>
 </body>
 </html>
