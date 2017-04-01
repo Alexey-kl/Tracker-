@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import  render_to_response, redirect
 from models import Magistrant, Teacher
 from django.template.context_processors import csrf
-# Create your views here.
 
+# Create your views here.
+# -*- coding: utf-8 -*-
 #def magistrants(request):
 #    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.all()})
 def magistrants(request):
@@ -33,6 +34,13 @@ def TeacherMagistr(request, teacher_id=1):
     args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id)
     return render_to_response('TeacherInformAll.html', args)
 
-def sort(request):
-    Magistrant.objects.order_by("magistrant_name")
-    return redirect('/magistrants/all/')
+
+def load (request, magistrant_id=1, teacher_id=1):
+    magistrant = Magistrant.objects.get(id=magistrant_id)
+    magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+    magistrant.save()
+    return redirect('/')
+
+
+
+

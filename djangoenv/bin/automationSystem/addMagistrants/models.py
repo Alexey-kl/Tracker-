@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from django.utils import timezone
-
+# -*- coding: utf-8 -*-
 # Create your models here.
 
 teacher_AcademicDegree_CHOICES = (
@@ -30,7 +30,7 @@ teacher_AcademicRank_CHOICES = (
 class Teacher(models.Model):
     class Meta():
         db_table = 'teacher'
-    teacher_name = models.CharField(max_length=100, verbose_name="FIO teacher")
+    teacher_name = models.CharField(max_length=100, verbose_name='FIO')
     teacher_AcademicDegree = models.CharField(max_length=100, choices=teacher_AcademicDegree_CHOICES, )
     teacher_AcademicRank = models.CharField(max_length=100, choices=teacher_AcademicRank_CHOICES)
     teacher_work = models.CharField(max_length=100)
@@ -40,6 +40,8 @@ class Teacher(models.Model):
 
     def __unicode__(self):
         return '%s' % (self.teacher_name)
+
+
 
 
 magistrant_StatusMagistrant_CHOICES = (
@@ -59,6 +61,12 @@ magistarnt_TypeOfTraning_CHOIES = (
     ('eveningtime', 'Evningtime'),
 )
 
+magistrant_FormOfTrainingLoad_CHOICES = (
+    ('Time pay', 'Time pay'),
+    ('IP', 'IP'),
+)
+
+
 class Magistrant(models.Model):
     class Meta():
         db_table = 'magistrant'
@@ -75,7 +83,11 @@ class Magistrant(models.Model):
     magistrant_ThemeOfMagistrWork = models.CharField(max_length=100, blank=True)
     magistrant_NumberOrder = models.CharField(max_length=15, blank=True)
     magistrant_OrderFromDate = models.DateField(blank=True, null=True, verbose_name="Date Order")
-
+    magistrant_FormOfTrainingLoad = models.CharField(max_length=15, blank=True, null=True, verbose_name="Vipolnenie uch nagruzki", choices=magistrant_FormOfTrainingLoad_CHOICES  )
+    magistrant_StudyPeriod = models.FloatField(default=0, null=True, verbose_name="Study period")
+    magistrant_Email = models.EmailField(max_length=254, blank=True, verbose_name="Email")
+    magistrant_Phone = models.CharField(max_length=20, blank=True, verbose_name="Phone")
+    magistrant_Load = models.CharField(max_length=20, blank=True, null=True)
     def __unicode__(self):
         return '%s' % (self.magistrant_name)
 

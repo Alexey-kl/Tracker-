@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOAD TEST</title>
+</head>
+<body>
+<h1>LOAD </h1>
+
+<table border="1" width="100%" cellpadding="5">
+<tr>
+    <th>ФИО</th>
+    <th>Группа</th>
+    <th>Форма обучения</th>
+    <th>Тим обучения</th>
+    <th>Специальность</th>
+    <th>Форма выполниния учебной нагрузки</th>
+    <th>Нагрузка</th>
+    <th>Примечание</th>
+    </tr>
+{% for magistr in magistrant %}
+<tr>
+    <td>{{ magistr.magistrant_name }}</td>
+    <td>{{ magistr.magistrant_NameOfSpeciality}}</td>
+    <td>{{ magistr.magistrant_FormOfTraning }}</td>
+    <td>{{ magistr.magistarnt_TypeOfTraning }}</td>
+    <td>{{ magistr.magistrant_NameOfSpeciality }}</td>
+    <td> {{ magistr.magistrant_FormOfTrainingLoad }} </td>
+    <td> {{ magistr.magistrant_Load }} </td>
+    <td>{{ magistr.magistrant_comment }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
