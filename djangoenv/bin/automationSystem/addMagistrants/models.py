@@ -36,8 +36,7 @@ class Teacher(models.Model):
     teacher_work = models.CharField(max_length=100)
     teacher_position = models.CharField(max_length=100)
     teacher_comment = models.CharField(max_length=400, blank=True)
-    teacher_mag = models.ManyToManyField('Magistrant', blank=True, null=True,)
-
+    teacher_load = models.ForeignKey('Magistrant', blank=True, null=True)
     def __unicode__(self):
         return '%s' % (self.teacher_name)
 

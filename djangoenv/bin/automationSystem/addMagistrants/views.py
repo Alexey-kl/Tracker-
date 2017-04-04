@@ -22,8 +22,9 @@ def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
     args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
    # args['Themagistrant'] = Magistrant.objects.filter(magistrant_ThemeOfMagistrWork=magistrant_id)
   #  args['NumberOrder'] = Magistrant.objects.filter(magistrant_NumberOrder=magistrant_id)
-    args['teacher'] = Teacher.objects.all()
-    args['teacherName'] = Teacher.objects.get(id=magistrant_id)
+    #args['teacher'] = Teacher.objects.all()
+    #args['teacherName'] = Teacher.objects.get(id=magistrant_id)
+
     return render_to_response('MagistrantInformAll.html', args)
 
 
@@ -36,11 +37,21 @@ def TeacherMagistr(request, teacher_id=1):
 
 
 def load (request, magistrant_id=1, teacher_id=1):
-    magistrant = Magistrant.objects.get(id=magistrant_id)
-    magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
-    magistrant.save()
-    return redirect('/')
+        magistrant = Magistrant.objects.get(id=magistrant_id)
+        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+        magistrant.save()
+        return render_to_response('load.html')
 
+
+def load2 (request, magistrant_id=1, teacher_id=1):
+    teacher = Teacher.objects.get(id=teacher_id)
+    mag = Magistrant.objects.all()
+    #magistrant = Magistrant.objects.get(id=magistrant_id)
+    #magistrant = Magistrant.objects.get(id=magistrant_id)
+    for magistrant in mag:
+        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+        magistrant.save()
+    return render_to_response('load2.html')
 
 
 

@@ -9,7 +9,8 @@ urlpatterns = [
     url(r'^all/$', views.magistrants, name='magistrants'),
    # url(r'infoTeacher/(?P<teacher_id>\d+)/$', views.TeacherInfomrAll, name='TeacherInfomrAll'),
      url(r'infoTeacher/(?P<teacher_id>\d+)/$', views.TeacherMagistr, name='TeacherMagistr'),
-    url(r'infoTeacher/(?P<magistrant_id>\d+)/load/$', views.load, name='load'),
+    url(r'infoTeacher/(?P<teacher_id>\d+)/load2/$', views.load2, name='load2'),
+    url(r'infoMagistr/(?P<magistrant_id>\d+)/load/$', views.load, name='load'),
     url(r'infoMagistr/(?P<magistrant_id>\d+)/$', views.MagistrantInfoemAll, name='MagistrantInfoemAll'),
    # url(r'magistrants/all/', views.sort, name='sort')
   #  url(r'^/admin/addMagistrants/teacher/{{ teacher.id }}/change/', admin.site.urls),
