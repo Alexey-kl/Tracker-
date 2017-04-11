@@ -577,67 +577,71 @@ model</ColNames>
       <Position>19</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <index id="135" parent="19" name="magistrant_c90a9665">
+    <column id="135" parent="19" name="magistrant_IPload">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="136" parent="19" name="magistrant_c90a9665">
       <ColNames>magistrant_ScientificAdviser_id</ColNames>
     </index>
-    <key id="136" parent="19" name="PRIMARY">
+    <key id="137" parent="19" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="137" parent="19" name="magistran_magistrant_ScientificAdviser_id_1259ec33_fk_teacher_id">
+    <foreign-key id="138" parent="19" name="magistran_magistrant_ScientificAdviser_id_1259ec33_fk_teacher_id">
       <ColNames>magistrant_ScientificAdviser_id</ColNames>
       <RefSchemaName>magistr</RefSchemaName>
       <RefTableName>teacher</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="138" parent="20" name="id">
+    <column id="139" parent="20" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="139" parent="20" name="teacher_name">
+    <column id="140" parent="20" name="teacher_name">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="140" parent="20" name="teacher_AcademicDegree">
+    <column id="141" parent="20" name="teacher_AcademicDegree">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="141" parent="20" name="teacher_AcademicRank">
+    <column id="142" parent="20" name="teacher_AcademicRank">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="142" parent="20" name="teacher_work">
+    <column id="143" parent="20" name="teacher_work">
       <Position>5</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="143" parent="20" name="teacher_position">
+    <column id="144" parent="20" name="teacher_position">
       <Position>6</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="144" parent="20" name="teacher_comment">
+    <column id="145" parent="20" name="teacher_comment">
       <Position>7</Position>
       <DataType>varchar(400)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="145" parent="20" name="teacher_load_id">
+    <column id="146" parent="20" name="teacher_load_id">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="146" parent="20" name="teacher_acc7c0e1">
+    <index id="147" parent="20" name="teacher_acc7c0e1">
       <ColNames>teacher_load_id</ColNames>
     </index>
-    <key id="147" parent="20" name="PRIMARY">
+    <key id="148" parent="20" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="148" parent="20" name="teacher_teacher_load_id_befaf160_fk_magistrant_id">
+    <foreign-key id="149" parent="20" name="teacher_teacher_load_id_befaf160_fk_magistrant_id">
       <ColNames>teacher_load_id</ColNames>
       <RefSchemaName>magistr</RefSchemaName>
       <RefTableName>magistrant</RefTableName>

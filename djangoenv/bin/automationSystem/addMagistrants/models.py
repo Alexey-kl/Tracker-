@@ -87,6 +87,7 @@ class Magistrant(models.Model):
     magistrant_Email = models.EmailField(max_length=254, blank=True, verbose_name="Email")
     magistrant_Phone = models.CharField(max_length=20, blank=True, verbose_name="Phone")
     magistrant_Load = models.CharField(max_length=20, blank=True, null=True)
+    magistrant_IPload = models.IntegerField(default=0, blank=True, null=True)
     def __unicode__(self):
         return '%s' % (self.magistrant_name)
 
