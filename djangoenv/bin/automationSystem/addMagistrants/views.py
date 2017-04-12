@@ -34,6 +34,13 @@ def TeacherMagistr(request, teacher_id=1):
     args.update(csrf(request))
     args['teacher'] = Teacher.objects.get(id=teacher_id)
     args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id, magistrant_StatusMagistrant='study')
+    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
+    mag = Magistrant.objects.all()
+    for magistrant in mag:
+        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+        magistrant.save()
     return render_to_response('TeacherInformAll.html', args)
 
 
