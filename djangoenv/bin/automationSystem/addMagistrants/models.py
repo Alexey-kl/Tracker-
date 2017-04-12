@@ -82,12 +82,12 @@ class Magistrant(models.Model):
     magistrant_ThemeOfMagistrWork = models.CharField(max_length=100, blank=True)
     magistrant_NumberOrder = models.CharField(max_length=15, blank=True)
     magistrant_OrderFromDate = models.DateField(blank=True, null=True, verbose_name="Date Order")
-    magistrant_FormOfTrainingLoad = models.CharField(max_length=15, blank=True, null=True, verbose_name="Vipolnenie uch nagruzki", choices=magistrant_FormOfTrainingLoad_CHOICES  )
-    magistrant_StudyPeriod = models.FloatField(default=0, null=True, verbose_name="Study period")
+    magistrant_FormOfTrainingLoad = models.CharField(max_length=15, verbose_name="Vipolnenie uch nagruzki", choices=magistrant_FormOfTrainingLoad_CHOICES  )
+    magistrant_StudyPeriod = models.FloatField(default=0, verbose_name="Study period")
     magistrant_Email = models.EmailField(max_length=254, blank=True, verbose_name="Email")
     magistrant_Phone = models.CharField(max_length=20, blank=True, verbose_name="Phone")
     magistrant_Load = models.CharField(max_length=20, blank=True, null=True)
-    magistrant_IPload = models.IntegerField(default=0, blank=True, null=True)
+
     def __unicode__(self):
         return '%s' % (self.magistrant_name)
 

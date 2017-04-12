@@ -4,6 +4,7 @@ from models import Magistrant, Teacher
 from django.template.context_processors import csrf
 from django.db.models import Sum
 
+
 # Create your views here.
 # -*- coding: utf-8 -*-
 #def magistrants(request):
@@ -34,38 +35,48 @@ def TeacherMagistr(request, teacher_id=1):
     args.update(csrf(request))
     args['teacher'] = Teacher.objects.get(id=teacher_id)
     args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id, magistrant_StatusMagistrant='study')
-    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
+    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    if args['magistrant_IPload'] == None:
+        args['sum_load'] = 0 + args['magistrant_TimePay']
+    else:
+        if args['magistrant_TimePay'] == None:
+            args['sum_load'] = 0 + args['magistrant_IPload']
+        else:
+            args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
     mag = Magistrant.objects.all()
     for magistrant in mag:
-        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+        if magistrant.magistrant_StudyPeriod == 0:
+            magistrant.magistrant_Load = 0
+        else:
+            magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
         magistrant.save()
     return render_to_response('TeacherInformAll.html', args)
 
 
-def load (request, magistrant_id=1, teacher_id=1):
-        magistrant = Magistrant.objects.get(id=magistrant_id)
-        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
-        magistrant.save()
-        return render_to_response('load.html')
+
+#def load (request, magistrant_id=1, teacher_id=1):
+#        magistrant = Magistrant.objects.get(id=magistrant_id)
+#        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+#        magistrant.save()
+#        return render_to_response('load.html')
 
 
-def load2 (request, magistrant_id=1, teacher_id=1):
+#def load2 (request, magistrant_id=1, teacher_id=1):
    # teacher = Teacher.objects.get(id=teacher_id)
-    mag = Magistrant.objects.all()
+#    mag = Magistrant.objects.all()
     #IPload = Magistrant.objects.filter(magistrant_FormOfTrainingLoad='IP')
     #magistrant = Magistrant.objects.get(id=magistrant_id)
     #magistrant = Magistrant.objects.get(id=magistrant_id)
-    for magistrant in mag:
-        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
-        magistrant.save()
-    args = {}
-    args.update(csrf(request))
-    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    for magistrant in mag:
+#        magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
+#        magistrant.save()
+#    args = {}
+#    args.update(csrf(request))
+#    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
            #return render_to_response('load2.html')
-    return redirect('/added/teachers/infoTeacher/%s/' % teacher_id, args)
+    #return redirect('/added/teachers/infoTeacher/%s/' % teacher_id, args)
 
 #def load_all (request, magistrant_id=1, teacher_id=1):
     #teacher = Teacher.objects.get(id=teacher_id)
@@ -79,10 +90,10 @@ def load2 (request, magistrant_id=1, teacher_id=1):
          #Magistr.magistrant_IPload = Magistr.objects.filter(Magistr.magistrant_FormOfTraning="IP").aggregate(Sum('magist.magistrant_Load'))
  #   return render_to_response('loadIP.html', args)
 
-def load_all (request, magistrant_id=1, teacher_id=1):
+#def load_all (request, magistrant_id=1, teacher_id=1):
 #    mag = Magistrant.objects.all()
-    args = {}
-    args.update(csrf(request))
-    args['magistrant_IPload']=Magistrant.objects.filter(magistrant_FormOfTrainingLoad = "IP", magistrant_ScientificAdviser_id = teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['magistrant_TimePay']=Magistrant.objects.filter(magistrant_FormOfTrainingLoad = "Time pay", magistrant_ScientificAdviser_id = teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    return render_to_response('loadIP.html', args)
+#    args = {}
+#    args.update(csrf(request))
+#    args['magistrant_IPload']=Magistrant.objects.filter(magistrant_FormOfTrainingLoad = "IP", magistrant_ScientificAdviser_id = teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    args['magistrant_TimePay']=Magistrant.objects.filter(magistrant_FormOfTrainingLoad = "Time pay", magistrant_ScientificAdviser_id = teacher_id).aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    return render_to_response('loadIP.html', args)
