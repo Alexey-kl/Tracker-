@@ -3,6 +3,8 @@ from django.shortcuts import  render_to_response, redirect
 from models import Magistrant, Teacher
 from django.template.context_processors import csrf
 from django.db.models import Sum
+from django.http import HttpResponse
+import xlwt
 
 
 # Create your views here.
@@ -52,6 +54,7 @@ def TeacherMagistr(request, teacher_id=1):
             magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
         magistrant.save()
     return render_to_response('TeacherInformAll.html', args)
+
 
 
 
