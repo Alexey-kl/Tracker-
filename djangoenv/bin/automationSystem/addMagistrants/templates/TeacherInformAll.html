@@ -15,7 +15,7 @@
     <a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button" value="Редактировать преподавателя"></a>
     <a href="/admin/addMagistrants/teacher/add/"><input type="submit" class="button" value="Добавить преподавателя"></a>
     <a href="/added/teachers/infoTeacher/{{ teacher.id }}/"><input type="submit" class="button" value="Расчет"></a>
-
+    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/some_view/"><input type="submit" class="button" value="Excel"></a>
 <h3>Test</h3>
 <table border="1" width="100%" cellpadding="5">
 <tr>
@@ -31,7 +31,7 @@
 {% for magistr in magistrant %}
 <tr>
     <td>{{ magistr.magistrant_name }}</td>
-    <td>{{ magistr.magistrant_NameOfSpeciality}}</td>
+    <td>{{ magistr.magistrant_NumberOfTheSpecialty}}</td>
     <td>{{ magistr.magistrant_FormOfTraning }}</td>
     <td>{{ magistr.magistarnt_TypeOfTraning }}</td>
     <td>{{ magistr.magistrant_NameOfSpeciality }}</td>

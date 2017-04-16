@@ -13,7 +13,7 @@ urlpatterns = [
     #url(r'infoMagistr/(?P<magistrant_id>\d+)/load/$', views.load, name='load'),
    #url(r'infoTeacher/(?P<teacher_id>\d+)/loadIP/$', views.load_all, name='load_all'),
     url(r'infoMagistr/(?P<magistrant_id>\d+)/$', views.MagistrantInfoemAll, name='MagistrantInfoemAll'),
-    #url(r'infoTeacher/(?P<teacher_id>\d+)/exel/$', views.excel_view, name='excel_view'),
+    url(r'infoTeacher/(?P<teacher_id>\d+)/some_view/$', views.some_view, name='some_view'),
       # url(r'magistrants/all/', views.sort, name='sort')
   #  url(r'^/admin/addMagistrants/teacher/{{ teacher.id }}/change/', admin.site.urls),
 
