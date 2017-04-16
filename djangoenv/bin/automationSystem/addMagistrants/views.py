@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from django.shortcuts import  render_to_response, redirect
-from models import Magistrant, Teacher
+from models import Magistrant, Load, Teacher
 from django.template.context_processors import csrf
 from django.db.models import Sum
 from django.http import HttpResponse, StreamingHttpResponse
@@ -59,8 +59,7 @@ def TeacherMagistr(request, teacher_id=1):
     return render_to_response('TeacherInformAll.html', args)
 
 
-
-def some_view(request,teacher_id=1, ):
+def some_view(request,teacher_id=1):
     #Create the HttpResponse object with the appropriate CSV header.
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="Нагрузка преподавателя.csv"'
@@ -74,6 +73,38 @@ def some_view(request,teacher_id=1, ):
     magistrantsInfo = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id).values_list('magistrant_name', 'magistrant_NumberOfTheSpecialty', 'magistrant_NameOfSpeciality', 'magistrant_FormOfTraning', 'magistarnt_TypeOfTraning', 'magistrant_FormOfTrainingLoad', 'magistrant_Load', 'magistrant_comment')
     for MI in magistrantsInfo:
         writer.writerow( MI )
+    writer.writerow(['ИП'])
+    return response
+
+def infoAllTeachers(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Информация о преподавателях.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['ФИО', 'Учёная степень', 'Учёное звание', 'Основное место работы', 'Должность', 'Примечание'])
+    teachersInfo = Teacher.objects.all().values_list('teacher_name', 'teacher_AcademicDegree','teacher_AcademicRank', 'teacher_work','teacher_position')
+    for TsI in teachersInfo:
+        writer.writerow(TsI)
+    return response
+
+def infoAllMagistrants(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Информация о магистрантах.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['ФИО', 'Год поступления', 'Год окончания',	'Шифр специальности', 'Название специальности',	'Форма обучения',	'Тип обучения',	'Научный руководитель',	'Состояние магистранта', 'Примечание', 'Тема магистерской дисертации', 'Email', 'Телефон'])
+    magistrantsInfo = Magistrant.objects.all().values_list('magistrant_name', 'magistrant_YearOfReceipt', 'magistrant_YearOfEnding', 'magistrant_NumberOfTheSpecialty', 'magistrant_NameOfSpeciality', 'magistrant_FormOfTraning', 'magistarnt_TypeOfTraning', 'magistrant_StatusMagistrant', 'magistrant_comment', 'magistrant_ThemeOfMagistrWork',  'magistrant_Email', 'magistrant_Phone')
+    for MsI in magistrantsInfo:
+        writer.writerow(MsI)
+    return response
+
+def mag_info(request, magistrant_id=1, teacher_id=1):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="Сформировать отчёт.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['ФИО', 'Тема магистерской работы', '№ приказа', 'Дата приказа', 'Преподаватель'])
+    #teacher = Teacher.objects.filter(magistrant_ScientificAdviser_id=teacher_id).values_list('teacher_name')
+    magistrantInfo = Magistrant.objects.filter(id=magistrant_id,magistrant_ScientificAdviser_id=teacher_id).values_list('magistrant_name', 'magistrant_ThemeOfMagistrWork', 'magistrant_NumberOrder', 'magistrant_OrderFromDate')
+    for MS in magistrantInfo:
+        writer.writerow(MS)
     return response
 
 
@@ -83,8 +114,9 @@ def some_view(request,teacher_id=1, ):
 #    args.update(csrf(request))
 #    args['teacher'] = Teacher.objects.get(id=teacher_id)
 #    args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant='study')
-#    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
 #    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+#    load.save()
 
 
 #def load (request, magistrant_id=1, teacher_id=1):

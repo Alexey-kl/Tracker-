@@ -14,8 +14,11 @@
     <h2>Примечание {{ teacher.teacher_comment }}</h2>
     <a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button" value="Редактировать преподавателя"></a>
     <a href="/admin/addMagistrants/teacher/add/"><input type="submit" class="button" value="Добавить преподавателя"></a>
-    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/"><input type="submit" class="button" value="Расчет"></a>
-    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/some_view/"><input type="submit" class="button" value="Excel"></a>
+    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/"><input type="submit" class="button" value="Расчет нагрузки"></a>
+    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/some_view/"><input type="submit" class="button" value="Сформировать отчёт"></a>
+
+    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/test/"><input type="submit" class="button" value="test"></a>
+
 <h3>Test</h3>
 <table border="1" width="100%" cellpadding="5">
 <tr>
