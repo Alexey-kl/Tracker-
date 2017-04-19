@@ -7,7 +7,9 @@ from django.template.context_processors import csrf
 from django.db.models import Sum
 from django.http import HttpResponse, StreamingHttpResponse
 import csv
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 
 # Create your views here.
@@ -39,8 +41,29 @@ def TeacherMagistr(request, teacher_id=1):
     args.update(csrf(request))
     args['teacher'] = Teacher.objects.get(id=teacher_id)
     args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id, magistrant_StatusMagistrant='Обучается')
-    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    mag = Magistrant.objects.all()
+    for magistrant in mag:
+        if magistrant.magistrant_StudyPeriod == u'2-х годичная':
+            if magistrant.magistarnt_TypeOfTraning == u'Очное':
+                magistrant.magistrant_Load = (20 -1) * 3 + 1.5
+            else:
+                magistrant.magistrant_Load = (25 - 1) * 3 + 1.5
+            magistrant.save()
+        else:
+            if magistrant.magistarnt_TypeOfTraning == u'Очное':
+                magistrant.magistrant_Load = (10 - 1) * 3 + 1.5
+            else:
+                magistrant.magistrant_Load = 10 * 3
+            magistrant.save()
+        magistrant.refresh_from_db()
+    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",
+                                                          magistrant_ScientificAdviser_id=teacher_id,
+                                                          magistrant_StatusMagistrant="Обучается").aggregate(
+        Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",
+                                                           magistrant_ScientificAdviser_id=teacher_id,
+                                                           magistrant_StatusMagistrant="Обучается").aggregate(
+        Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
     if args['magistrant_IPload'] == None and args['magistrant_TimePay'] == None:
         args['sum_load'] = 0
     else:
@@ -51,14 +74,73 @@ def TeacherMagistr(request, teacher_id=1):
                 args['sum_load'] = 0 + args['magistrant_IPload']
             else:
                 args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
-    mag = Magistrant.objects.all()
-    for magistrant in mag:
-        if magistrant.magistrant_StudyPeriod == 0:
-            magistrant.magistrant_Load = 0
-        else:
-            magistrant.magistrant_Load = (magistrant.magistrant_StudyPeriod - 1) * 3 + 1.5
-        magistrant.save()
     return render_to_response('TeacherInformAll.html', args)
+
+#def TeacherMagistr(request, teacher_id=1):
+#    args = {}
+#    args.update(csrf(request))
+#    args['teacher'] = Teacher.objects.get(id=teacher_id)
+#    args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id,
+#                                                   magistrant_StatusMagistrant='Обучается')
+#    args['magistrant_IPload_FullTime'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",
+#                                                                    magistrant_ScientificAdviser_id=teacher_id,
+#                                                                    magistrant_StatusMagistrant="Обучается",
+#                                                                    magistarnt_TypeOfTraning="Очное")
+#    args['magistrant_IPload_notFullTime'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",
+#                                                                magistrant_ScientificAdviser_id=teacher_id,
+#                                                                magistrant_StatusMagistrant="Обучается",
+#                                                                magistarnt_TypeOfTraning="Заочное")
+#    args['magistrant_Contractload_FullTime'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",
+#                                                                   magistrant_ScientificAdviser_id=teacher_id,
+#                                                                   magistrant_StatusMagistrant="Обучается",
+#                                                                   magistarnt_TypeOfTraning="Очное")
+#    args['magistrant_Contractloadload_notFullTime'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",
+#                                                                   magistrant_ScientificAdviser_id=teacher_id,
+#                                                                   magistrant_StatusMagistrant="Обучается",
+#                                                                   magistarnt_TypeOfTraning="Зачное")
+#    for magistrant in args['magistrant_IPload_FullTime']:
+#        if magistrant.magistrant_StudyPeriod == "1-a годичная":
+#            magistrant.magistrant_Load = (10 - 1) *3 + 1.5
+#        else:
+#            magistrant.magistrant_Load = (20 - 1) * 3 + 1.5
+#        magistrant.save()
+#    for magistrant in args['magistrant_IPload_notFullTime']:
+#        if magistrant.magistrant_StudyPeriod == "1-a годичная":
+#            magistrant.magistrant_Load = 10 * 3
+#        else:
+#            magistrant.magistrant_Load = (20 - 1) * 3 + 1.5
+#        magistrant.save()
+#    for magistrant in args['magistrant_Contractload_FullTime']:
+#        if magistrant.magistrant_StudyPeriod == "1-a годичная":
+#            magistrant.magistrant_Load = (10 - 1) * 3 + 1.5
+#        else:
+#            magistrant.magistrant_Load = (20 - 1) * 3 + 1.5
+#        magistrant.save()
+#    for magistrant in args['magistrant_IPload_notFullTime']:
+#        if magistrant.magistrant_StudyPeriod == "1-a годичная":
+#            magistrant.magistrant_Load = 10 * 3
+#        else:
+#            magistrant.magistrant_Load = (20 - 1) * 3 + 1.5
+#        magistrant.save()
+
+
+   # args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",
+   #                                                 magistrant_ScientificAdviser_id=teacher_id,
+   #                                                 magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+   # args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",
+   #                                                 magistrant_ScientificAdviser_id=teacher_id,
+   #                                                 magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+   # if args['magistrant_IPload'] == None and args['magistrant_TimePay'] == None:
+   #     args['sum_load'] = 0
+   # else:
+   #     if args['magistrant_IPload'] == None:
+   #         args['sum_load'] = 0 + args['magistrant_TimePay']
+   #     else:
+   #         if args['magistrant_TimePay'] == None:
+   #             args['sum_load'] = 0 + args['magistrant_IPload']
+   #         else:
+   #             args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
+    #return render_to_response('TeacherInformAll.html', args)
 
 
 def some_view(request,teacher_id=1):

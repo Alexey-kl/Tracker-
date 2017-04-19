@@ -62,6 +62,10 @@ magistrant_FormOfTrainingLoad_CHOICES = (
     (u'ИП', u'ИП'),
 )
 
+magistrant_StudyPeriod_CHOICES = (
+    (u'1-а годичная', u'1-а годичная'),
+    (u'2-х годичная', u'2-х годичная'),
+)
 
 class Magistrant(models.Model):
     class Meta():
@@ -80,7 +84,7 @@ class Magistrant(models.Model):
     magistrant_NumberOrder = models.CharField(max_length=15, blank=True, verbose_name=u"Номер приказа")
     magistrant_OrderFromDate = models.DateField(blank=True, null=True, verbose_name=u"Дата приказа")
     magistrant_FormOfTrainingLoad = models.CharField(max_length=15, verbose_name=u"Выполнение учебной нагрузки", choices=magistrant_FormOfTrainingLoad_CHOICES  )
-    magistrant_StudyPeriod = models.FloatField(default=0, verbose_name=u"Период обучения")
+    magistrant_StudyPeriod = models.CharField(max_length=15, verbose_name=u"Система образования", choices=magistrant_StudyPeriod_CHOICES)
     magistrant_Email = models.EmailField(max_length=254, blank=True, verbose_name=u"Адрес электронной почты")
     magistrant_Phone = models.CharField(max_length=20, blank=True, verbose_name=u"Телефон")
     magistrant_Load = models.CharField(max_length=20, blank=True, null=True)

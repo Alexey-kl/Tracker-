@@ -629,7 +629,7 @@ model</ColNames>
     </column>
     <column id="147" parent="21" name="magistrant_StudyPeriod">
       <Position>16</Position>
-      <DataType>double|0</DataType>
+      <DataType>varchar(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="148" parent="21" name="magistrant_Email">
@@ -648,7 +648,7 @@ model</ColNames>
     </column>
     <column id="151" parent="21" name="magistrant_LoadIP">
       <Position>20</Position>
-      <DataType>double|0</DataType>
+      <DataType>varchar(20)|0</DataType>
     </column>
     <index id="152" parent="21" name="magistrant_c90a9665">
       <ColNames>magistrant_ScientificAdviser_id</ColNames>
