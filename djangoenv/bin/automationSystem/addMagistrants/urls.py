@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import url
 from django.contrib import admin
 from addMagistrants import views
 from django.contrib import admin
 from django.conf.urls import include
-# -*- coding: utf-8 -*-
+
 urlpatterns = [
     url(r'^teachers/$', views.teachers, name='teachers'),
     url(r'^all/$', views.magistrants, name='magistrants'),

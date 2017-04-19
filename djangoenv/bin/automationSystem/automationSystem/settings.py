@@ -94,7 +94,6 @@ DATABASES = {
         'NAME': 'magistr',
         'USER': 'magistr',
         'PASSWORD': 'mag2017',
-
     }
 }
 

@@ -15,7 +15,7 @@ import csv
 #def magistrants(request):
 #    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.all()})
 def magistrants(request):
-    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.filter(magistrant_StatusMagistrant='study')})
+    return render_to_response('magistrants.html', {'magistrants': Magistrant.objects.filter(magistrant_StatusMagistrant='Обучается')})
 def teachers(request):
         return render_to_response('teachers.html', {'teachers': Teacher.objects.all()})
 
@@ -34,21 +34,23 @@ def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
 
     return render_to_response('MagistrantInformAll.html', args)
 
-
 def TeacherMagistr(request, teacher_id=1):
     args = {}
     args.update(csrf(request))
     args['teacher'] = Teacher.objects.get(id=teacher_id)
-    args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id, magistrant_StatusMagistrant='study')
-    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="IP",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="Time pay",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="study").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
-    if args['magistrant_IPload'] == None:
-        args['sum_load'] = 0 + args['magistrant_TimePay']
+    args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id, magistrant_StatusMagistrant='Обучается')
+    args['magistrant_IPload'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="ИП",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    args['magistrant_TimePay'] = Magistrant.objects.filter(magistrant_FormOfTrainingLoad="По договору",magistrant_ScientificAdviser_id=teacher_id,magistrant_StatusMagistrant="Обучается").aggregate(Sum('magistrant_Load')).get('magistrant_Load__sum', 0.00)
+    if args['magistrant_IPload'] == None and args['magistrant_TimePay'] == None:
+        args['sum_load'] = 0
     else:
-        if args['magistrant_TimePay'] == None:
-            args['sum_load'] = 0 + args['magistrant_IPload']
+        if args['magistrant_IPload'] == None:
+            args['sum_load'] = 0 + args['magistrant_TimePay']
         else:
-            args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
+            if args['magistrant_TimePay'] == None:
+                args['sum_load'] = 0 + args['magistrant_IPload']
+            else:
+                args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
     mag = Magistrant.objects.all()
     for magistrant in mag:
         if magistrant.magistrant_StudyPeriod == 0:
