@@ -20,7 +20,18 @@
 </head>
 <body>
 <h2><a href="/">BELARUSIAN STATE UNIVERSITY OF INFORMATICS AND RADIOELECTRONICS</a></h2>
-
+<div class="top-bar">
+     <section class="top-bar-section">
+         <ui class="right">
+             {% if username %}
+                <li><a href="/auth/logout/">Выйти ({{ username }})</a></li>
+             {% else %}
+                <li><a href="/auth/login/">Войти</a> </li>
+             {% endif %}
+         </ui>
+         </section>
+</div>
+{% if username %}
 <form>
     <p><a href="magistrants/all/"><input type="button" value="Magistrants"></a></p>
     {% block addMagistrants %} {% endblock %}
@@ -29,7 +40,9 @@
     <p><a href="added/teachers/"><input type="button" value="Преподаватели"></a></p>
     {% block addTeachers %} {% endblock %}
 </form>
+{% endif %}
     <h1><a href="informationPage/">Information page</a></h1>
     {% block article %} {% endblock %}
+    {% block login %} {% endblock %}
 </body>
 </html>

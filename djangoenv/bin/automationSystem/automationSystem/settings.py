@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'article',
     'addMagistrants',
     'loadingFiles',
+    'loginsys',
 
 ]
 
@@ -62,6 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['/opt/python/djangoenv/bin/automationSystem/templates',
                  'opt/python/djangoenv/bin/automationSystem/article/templates',
+                 'opt/python/djangoenv/bin/automationSystem/loginsys/templates',
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
