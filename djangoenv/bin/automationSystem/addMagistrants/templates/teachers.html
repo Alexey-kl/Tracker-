@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Teachers</title>
-</head>
-<body>
+{% load staticfiles %}
 
-<h1>TEST TEACHERS</h1>
-<a href="/added/teachers/all_teachers/"><input type="submit" class="button" value="Сформировать отчёт"></a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+    <title>Преподаватели</title>
+</head>
+<link rel="stylesheet" type="text/css" href="{% static "css/css_teachers.css" %}">
+<body>
+<table align=center border=0 class="content">
+    <tr>
+<td><img src="static/image/BSUIR_2.jpg" width="100px" height="130px"></td>
+        <td><h2><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a></h2></td>
+<td><img src="static/IPIE.jpg" width="100px" height="130px"></td>
+</tr>
+</table>
+
+
+
+<div class="teachers">
+<h1>Преподаватели</h1>
+</div>
+
+<a href="/added/teachers/all_teachers/"><input type="submit" class="button button-blue" value="Импорт таблицы"></a>
+
+<p></p>
+<div class="table_teachers">
 <table border="1" width="100%" cellpadding="5">
 
-    <caption>Таблица преподавателей</caption>
     <tr>
     <th>ФИО</th>
     <th>Учёная степень</th>
@@ -30,5 +47,6 @@
         </tr>
 {% endfor %}
 </table>
+    </div>
 </body>
 </html>

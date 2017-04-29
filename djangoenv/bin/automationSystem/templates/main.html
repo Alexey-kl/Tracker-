@@ -1,48 +1,56 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
-    <title>DJANGO</title>
-        <link rel="stylesheet" type="text/css" href="{% static "css/foundation.css" %}">
-    <style>
-   body{
-       /* Background color of web page */
-    background-color: #F5F5F5;
-   }
-   h2 {
-       /*Background color under the heading*/
-    background-color: #0000CD;
-       color: white;
-   }
-
-  </style>
+    <title>АСУНМ</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{% static "css/mycss.css" %}">
 <body>
-<h2><a href="/">BELARUSIAN STATE UNIVERSITY OF INFORMATICS AND RADIOELECTRONICS</a></h2>
-<div class="top-bar">
-     <section class="top-bar-section">
-         <ui class="right">
-             {% if username %}
-                <li><a href="/auth/logout/">Выйти ({{ username }})</a></li>
-             {% else %}
-                <li><a href="/auth/login/">Войти</a> </li>
-             {% endif %}
-         </ui>
-         </section>
-</div>
-{% if username %}
-<form>
-    <p><a href="magistrants/all/"><input type="button" value="Magistrants"></a></p>
-    {% block addMagistrants %} {% endblock %}
-</form>
-<form>
-    <p><a href="added/teachers/"><input type="button" value="Преподаватели"></a></p>
-    {% block addTeachers %} {% endblock %}
-</form>
-{% endif %}
-    <h1><a href="informationPage/">Information page</a></h1>
+<table align=center border=0 class="content">
+    <tr>
+<td><img src="static/image_main/BSUIR.jpg" width="100px" height="130px"></td>
+        <td><h2><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a></h2></td>
+<td><img src="static/image_main/IPIE.jpg" width="100px" height="130px"></td>
+</tr>
+</table>
+
+
+
+   <!-- <div class="content">
+        <h2><img src="static/image/BSUIR_2.jpg" width="100px" height="130px"  align="left"><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a><img class="ipie" src="static/image/IPIE.jpg" width="100px" height="130px"  align="right"></h2>
+
+    </div> -->
+<table>
+    <div class="menu">
+        {% if username %}
+            <a class="button button-blue" href="/magistrants/all/">
+                <span>Магистранты</span>
+            </a>
+            {% block addMagistrants %} {% endblock %}
+            <a class="button button-blue" href="/added/teachers/">
+                <span>Преподаватели</span>
+            </a>
+            {% block addTeachers %} {% endblock %}
+        <a class="button button-blue" href="/admin/">
+                <span>Панель администратора</span>
+            </a>
+            <a class="button button-blue login" href="/auth/logout/">
+                <span>Выйти ({{ username }})</span>
+            </a>
+        {% else %}
+            <a class="button button-blue logout" href="/auth/login/">
+                <span>Войти</span>
+            </a>
+        {% endif %}
+    </div>
+</table>
+
+<div class="InformationPage">
+    <h1><a href="informationPage/">Доска объявлений</a></h1>
+    </div>
     {% block article %} {% endblock %}
     {% block login %} {% endblock %}
+
 </body>
 </html>

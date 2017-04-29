@@ -74,6 +74,8 @@ def TeacherMagistr(request, teacher_id=1):
                 args['sum_load'] = 0 + args['magistrant_IPload']
             else:
                 args['sum_load'] = args['magistrant_IPload'] + args['magistrant_TimePay']
+                #magistrant.magistrant_LoadIP=args['magistrant_IPload'] + args['magistrant_TimePay']
+                #magistrant.save()
     return render_to_response('TeacherInformAll.html', args)
 
 #def TeacherMagistr(request, teacher_id=1):
@@ -152,7 +154,6 @@ def some_view(request,teacher_id=1):
     teacherInfo = Teacher.objects.filter(id=teacher_id).values_list('teacher_name', 'teacher_AcademicDegree', 'teacher_AcademicRank', 'teacher_work', 'teacher_position')
     for TI in teacherInfo:
         writer.writerow( TI )
-    writer.writerow([])
     writer.writerow(['ФИО', 'Номер специальности', 'Форма обучения', 'Тип обучения', 'Специальность', 'Форма выполнения учебной нагрузки', 'Нагрузка', 'Примечание'])
     magistrantsInfo = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id).values_list('magistrant_name', 'magistrant_NumberOfTheSpecialty', 'magistrant_NameOfSpeciality', 'magistrant_FormOfTraning', 'magistarnt_TypeOfTraning', 'magistrant_FormOfTrainingLoad', 'magistrant_Load', 'magistrant_comment')
     for MI in magistrantsInfo:

@@ -138,8 +138,11 @@ DATE_FORMAT = 'd.m.Y'
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/opt/python/djangoenv/bin/automationSystem/addMagistrants/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/opt/python/djangoenv/bin/automationSystem/static/css',
+os.path.join(BASE_DIR, "static_teachers"),
+    '/opt/python/djangoenv/bin/automationSystem/addMagistrants/static/css',
 ]

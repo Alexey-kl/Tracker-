@@ -6,7 +6,8 @@ class ArticleAdmin(admin.ModelAdmin):
 # here specify the DB column that appears in the administration panel
     fields = ['article_title', 'article_text', 'article_date']
    # inlines = [ArticleInline]
-    list_filter = ['article_date']
+    list_display = ['article_title']
+    list_filter = ['article_date', 'article_title']
 
 # class for view and change comments
 class ArticleInline(admin.StackedInline):

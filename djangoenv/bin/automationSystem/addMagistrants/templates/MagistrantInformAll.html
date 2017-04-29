@@ -1,21 +1,54 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+    <title>Магистранты</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{% static "css/css_teachers.css" %}">
 <body>
-<h1>TEST INFORM MAGISTRANT </h1>
+<table align=center border=0 class="content">
+    <tr>
+<td><img src="image_main/BSUIR_2.jpg" width="100px" height="130px"></td>
+        <td><h2><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a></h2></td>
+<td><img src="image_main/IPIE.jpg" width="100px" height="130px"></td>
+</tr>
+</table>
 
-<a href="/magistrants/all/infoMagistr/{{ magistrant.id }}/mag_info/"><input type="submit" class="button" value="Сформировать отчёт"></a>
+<div class="magistr">
+<h1>Магистрант {{ magistrant.magistrant_name }}</h1>
+    </div>
 
+<table class="button-table">
 
-<h3> ФИО: {{ magistrant.magistrant_name }}</h3>
-<h3> Тема магистерской работы: {{ magistrant.magistrant_ThemeOfMagistrWork }} </h3>
-<h4>Приказ № {{ magistrant.magistrant_NumberOrder }} От {{ magistrant.magistrant_OrderFromDate }} </h4>
+    <tr>
+        <th><a href="/magistrants/all/infoMagistr/{{ magistrant.id }}/mag_info/"><input type="submit" class="button button-blue" value="Сформировать отчёт"></a></th>
+        <th><a href="/admin/addMagistrants/magistrant/{{ magistrant.id }}/change/"><input type="submit" class="button button-blue" value="Редактировать магистранта"></a></th>
+        <th><a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button button-blue" value="Редактировать преподавателя"></a></th>
+    </tr>
+
+</table>
+
+ <p></p>
+<div class="table_teachers">
+<table border="1" width="100%" cellpadding="5">
+    <tr>
+<th> ФИО</th>
+<th> Тема магистерской работы: </th>
+<th>Приказ №</th>
 {% block teacherName %}
-<h3> Преподаватель: {{ teacherName.teacher_name }}, {{ teacherName.teacher_AcademicDegree }}, {{ teacherName.teacher_AcademicRank }} </h3>
-
+<th> Преподаватель</th>
+    </tr>
+    <tr>
+        <td>{{ magistrant.magistrant_name }}</td>
+        <td>{{ magistrant.magistrant_ThemeOfMagistrWork }}</td>
+        <td>{{ magistrant.magistrant_NumberOrder }} От {{ magistrant.magistrant_OrderFromDate }}</td>
+        <td>{{ teacherName.teacher_name }}, {{ teacherName.teacher_AcademicDegree }}, {{ teacherName.teacher_AcademicRank }}</td>
+</tr>
 {% endblock %}
+    </th>
+</table>
+</div>
 </body>
 </html>

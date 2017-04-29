@@ -1,17 +1,29 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Magistrants</title>
-
+<meta charset="UTF-8">
+    <title>Магистранты</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{% static "css/css_teachers.css" %}">
 <body>
+<table align=center border=0 class="content">
+    <tr>
+<td><img src="addMagistrants/static/image_main/BSUIR_2.jpg" width="100px" height="130px"></td>
+        <td><h2><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a></h2></td>
+<td><img src="static/image_main/IPIE.jpg" width="100px" height="130px"></td>
+</tr>
+</table>
 
-<h1>TEST MAGISTRANTS</h1>
-<a href="/magistrants/all/all_magistrants/"><input type="submit" class="button" value="Сформировать отчёт"></a>
+<div class="magistr">
+<h1>Магистранты</h1>
+</div>
+<a href="/magistrants/all/all_magistrants/"><input type="submit" class="button button-blue" value="Импорт таблицы"></a>
+<p></p>
 
+<div class="table_teachers">
 <table border="1" width="100%" cellpadding="5">
-    <caption>Таблица магистрантов</caption>
     <tr>
     <th>ФИО</th>
     <th>Год поступления</th>
@@ -43,5 +55,6 @@
 {% endfor %}
 
 </table>
+</div>
 </body>
 </html>

@@ -1,17 +1,26 @@
 {% extends 'main.html' %}
 
 {% block login %}
-    <div class="large-offset-3 large-6 columns">
-        <form action="/auth/login/" method="post">
-            {% csrf_token %}
-            <label for="username">Имя пользователя</label>
-            <input type="text" name="username" id="username">
-            <label for="password">Пароль</label>
-            <input type="password" name="password" id="password">
-            {% if login_error %}
-                <label class="error">{{ login_error }}</label>
-            {% endif %}
-            <input class="button" type="submit" value="Войти">
-        </form>
+    <div class="login-form">
+        <h1>АВТОРИЗАЦИЯ</h1>
+        <fieldset>
+            <form action="/auth/login/" method="post">
+                {% csrf_token %}
+                <p><label for="username"><h4>Имя пользователя</h4></label></p>
+                <input type="text" name="username" id="username">
+                <p><label for="password"><h4>Пароль</h4></label></p>
+                <div class="pass">
+                <input type="password" name="password" id="password">
+                    </div>
+                {% if login_error %}
+                    <label class="error">{{ login_error }}</label>
+                {% endif %}
+                <input class="button button-blue" type="submit" value="Войти">
+            </form>
+        </fieldset>
     </div>
 {% endblock %}
+
+
+
+

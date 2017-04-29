@@ -1,31 +1,64 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+    <title>АСУНМ</title>
 </head>
+<link rel="stylesheet" type="text/css" href="{% static "css/css_teachers.css" %}">
 <body>
-<h1>TEST TEACHER INFORM ALL</h1>
-<h2>ФИО {{ teacher.teacher_name }}</h2>
-<h2>Учёная степень {{ teacher.teacher_AcademicDegree }}</h2>
-    <h2>Учёное звание {{ teacher.teacher_AcademicRank }}</h2>
-    <h2>Основное место работы{{ teacher.teacher_work }}</h2>
-    <h2>Должность {{ teacher.teacher_position }}</h2>
-    <h2>Примечание {{ teacher.teacher_comment }}</h2>
-    <a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button" value="Редактировать преподавателя"></a>
-    <a href="/admin/addMagistrants/teacher/add/"><input type="submit" class="button" value="Добавить преподавателя"></a>
-    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/"><input type="submit" class="button" value="Расчет нагрузки"></a>
-    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/some_view/"><input type="submit" class="button" value="Сформировать отчёт"></a>
+<table align=center border=0 class="content">
+    <tr>
+<td><img src="static/image_main/BSUIR.jpg" width="100px" height="130px"></td>
+        <td><h2><a href="/">Белорусский Государственный Университет Информатики и Радиоэлектроники<br>Кафедра инженерной психологии и радиоэлектроники</a></h2></td>
+<td><img src="static/image_main/IPIE.jpg" width="100px" height="130px"></td>
+</tr>
+</table>
 
-    <a href="/added/teachers/infoTeacher/{{ teacher.id }}/test/"><input type="submit" class="button" value="test"></a>
+<div class="teacher">
+<h2>Учебная нагрузка преподавателя {{ teacher.teacher_name }}</h2>
+    </div>
+<div class="table_teachers">
+<table border="1" width="100%" cellpadding="5">
+    <tr>
+        <th>ФИО</th>
+        <th>Учёная степень</th>
+        <th>Учёное звание</th>
+        <th>Основное место работы</th>
+        <th>Должность</th>
+        <th>Примечание</th>
+    </tr>
+    <tr>
+        <td>{{ teacher.teacher_name }}</td>
+        <td>{{ teacher.teacher_AcademicDegree }}</td>
+        <td>{{ teacher.teacher_AcademicRank }}</td>
+        <td>{{ teacher.teacher_work }}</td>
+        <td>{{ teacher.teacher_position }}</td>
+        <td>{{ teacher.teacher_comment }}</td>
+    </tr>
+</table>
+</div>
 
-<h3>Test</h3>
+<table class="button-table">
+    <p></p>
+<tr>
+    <th><a href="/admin/addMagistrants/teacher/{{ teacher.id }}/change/"><input type="submit" class="button button-blue" value="Редактировать преподавателя"></a></th>
+    <th><a href="/admin/addMagistrants/teacher/add/"><input type="submit" class="button button-blue" value="Добавить преподавателя"></a></th>
+    <!-- <a href="/added/teachers/infoTeacher/{{ teacher.id }}/"><input type="submit" class="button" value="Расчет нагрузки"></a> -->
+    <th><a href="/added/teachers/infoTeacher/{{ teacher.id }}/some_view/"><input type="submit" class="button button-blue" value="Сформировать отчёт"></a></th>
+</tr>
+
+   <!-- <a href="/added/teachers/infoTeacher/{{ teacher.id }}/test/"><input type="submit" class="button" value="test"></a>-->
+</table>
+<p></p>
+
+<div class="table_teachers">
 <table border="1" width="100%" cellpadding="5">
 <tr>
     <th>ФИО</th>
     <th>Группа</th>
     <th>Форма обучения</th>
-    <th>Тим обучения</th>
+    <th>Тип обучения</th>
     <th>Специальность</th>
     <th>Форма выполниния учебной нагрузки</th>
     <th>Нагрузка</th>
@@ -44,10 +77,11 @@
 </tr>
 {% endfor %}
 </table>
-
+</div>
+<div class="repports">
 <h4>Итого ИП: {{ magistrant_IPload }}</h4>
 <h4>Итого по договору: {{ magistrant_TimePay }}</h4>
 <h4>ИТОГО: {{ sum_load }}</h4>
-
+</div>
 </body>
 </html>
