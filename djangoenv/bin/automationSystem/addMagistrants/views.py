@@ -25,16 +25,30 @@ def teachers(request):
 #def TeacherInfomrAll(request, teacher_id=1):
 #    return render_to_response('TeacherInformAll.html', {'teacher': Teacher.objects.get(id=teacher_id)})
 
-def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
-    args = {}
-    args.update(csrf(request))
-    args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
-   # args['Themagistrant'] = Magistrant.objects.filter(magistrant_ThemeOfMagistrWork=magistrant_id)
-  #  args['NumberOrder'] = Magistrant.objects.filter(magistrant_NumberOrder=magistrant_id)
-    #args['teacher'] = Teacher.objects.all()
-    #args['teacherName'] = Teacher.objects.get(id=magistrant_id)
+#def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
+#    args = {}
+#    args.update(csrf(request))
 
-    return render_to_response('MagistrantInformAll.html', args)
+def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
+     args = {}
+     args.update(csrf(request))
+     args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
+    # args['Themagistrant'] = Magistrant.objects.filter(magistrant_ThemeOfMagistrWork=magistrant_id)
+   #  args['NumberOrder'] = Magistrant.objects.filter(magistrant_NumberOrder=magistrant_id)
+     magAD = Magistrant.objects.all()
+     teacher = Teacher.objects.all()
+     return render_to_response('MagistrantInformAll.html', args)
+
+#def MagistrantInfoemAll (request, magistrant_id=1):
+#    args = {}
+#    args.update(csrf(request))
+#   # args['teacher'] = Teacher.objects.get(id=teacher_id)
+#    #args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id)
+#   # args['teacherName'] = Teacher.objects.filter(teacher_name=args['magistrant'])
+#    args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
+#    args['teacher'] = Teacher.objects.get(id=teacher_id)
+
+ #   return render_to_response('MagistrantInformAll.html', args)
 
 def TeacherMagistr(request, teacher_id=1):
     args = {}

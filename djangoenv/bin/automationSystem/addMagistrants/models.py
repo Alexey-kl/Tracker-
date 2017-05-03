@@ -7,18 +7,18 @@ from django.utils import timezone
 # Create your models here.
 
 teacher_AcademicDegree_CHOICES = (
-    ('k.t.n', 'k.t.n'),
-    ('k.f.m.n', 'k.f.m.n'),
-    ('k.bio.n', 'k.bio.n'),
-    ('k.psih.n', 'k.psih.n'),
-    ('k.med.n', 'k.med.n'),
-    ('k.ikonom.n', 'k.ikonom.n'),
-    ('d.t.n', 'd.t.n'),
-    ('d.f.m.n', 'd.f.m.n'),
-    ('d.bio.n', 'd.bio.n'),
-    ('d.psih.n', 'd.psih.n'),
-    ('d.med.n', 'd.med.n'),
-    ('d.ikonom.n', 'd.ikonom.n'),
+    ('к.т.н', 'к.т.н'),
+    ('к.ф.м.н', 'к.ф.м.н'),
+    ('к.био.н', 'к.био.н'),
+    ('к.псих.н', 'к.псих.н'),
+    ('к.мед.н', 'к.мед.н'),
+    ('к.эконом.н', 'к.эконом.н'),
+    ('д.т.н', 'д.т.н'),
+    ('д.ф.м.н', 'д.ф.м.н'),
+    ('д.био.н', 'д.био.н'),
+    ('д.псих.н', 'д.псих.н'),
+    ('д.мед.н', 'д.мед.н'),
+    ('д.эконом.н', 'д.эеоном.н'),
 )
 
 teacher_AcademicRank_CHOICES = (
@@ -39,6 +39,8 @@ class Teacher(models.Model):
     teacher_load = models.ForeignKey('Magistrant', blank=True, null=True)
     def __unicode__(self):
         return '%s' % (self.teacher_name)
+
+
 
 magistrant_StatusMagistrant_CHOICES = (
     (u'Обучается', u'Обучается'),
