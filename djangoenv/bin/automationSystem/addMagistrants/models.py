@@ -36,7 +36,6 @@ class Teacher(models.Model):
     teacher_work = models.CharField(max_length=100, verbose_name=u'Основное место работы')
     teacher_position = models.CharField(max_length=100, verbose_name=u'Должность')
     teacher_comment = models.CharField(max_length=400, blank=True, verbose_name=u'Примечание')
-    teacher_load = models.ForeignKey('Magistrant', blank=True, null=True)
     def __unicode__(self):
         return '%s' % (self.teacher_name)
 

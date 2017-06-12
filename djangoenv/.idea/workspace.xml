@@ -46,6 +46,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="magistr@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="magistrant" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -53,29 +67,74 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/automationSystem/automationSystem/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="90">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="load.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/load.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MagistrantInformAll.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/MagistrantInformAll.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="magistrants.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/magistrants.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1332">
-              <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+            <state relative-caret-position="216">
+              <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="magistr.teacher" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/e5e680ca/bdecc7f6-d465-44ba-8c50-8b864c36ae37/magistr.teacher">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -95,36 +154,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_site.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/automationSystem/templates/admin/base_site.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/automationSystem/templates/404.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="9" column="103" lean-forward="false" selection-start-line="9" selection-start-column="103" selection-end-line="9" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/automationSystem/article/admin.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,16 +169,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="594">
               <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherInformAll.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/TeacherInformAll.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1548">
-              <caret line="86" column="7" lean-forward="false" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -210,14 +229,14 @@
         <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/magistrants.html" />
         <option value="$PROJECT_DIR$/bin/automationSystem/templates/main.html" />
         <option value="$PROJECT_DIR$/bin/automationSystem/static/css/mycss.css" />
-        <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/MagistrantInformAll.html" />
-        <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/views.py" />
         <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/TeacherInformAll.html" />
         <option value="$PROJECT_DIR$/bin/automationSystem/templates/admin/base_site.html" />
         <option value="$PROJECT_DIR$/bin/automationSystem/templates/404.html" />
-        <option value="$PROJECT_DIR$/bin/automationSystem/automationSystem/settings.py" />
         <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/admin.py" />
+        <option value="$PROJECT_DIR$/bin/automationSystem/automationSystem/settings.py" />
+        <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/MagistrantInformAll.html" />
         <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/models.py" />
+        <option value="$PROJECT_DIR$/bin/automationSystem/addMagistrants/views.py" />
       </list>
     </option>
   </component>
@@ -254,6 +273,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -386,10 +407,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="djangoenv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="djangoenv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="automationSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addMagistrants" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,6 +444,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="sshConsole" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -683,7 +729,7 @@
     <frame x="45" y="24" width="1321" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1772549" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17019607" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20941177" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -747,13 +793,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/loadingFiles/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="39" lean-forward="false" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/e5e680ca/bdecc7f6-d465-44ba-8c50-8b864c36ae37/magistr.loading">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -812,13 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/load.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -997,37 +1029,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/MagistrantInformAll.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/magistrants.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e5e680ca/bdecc7f6-d465-44ba-8c50-8b864c36ae37/magistr.teacher">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/TeacherInformAll.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1548">
           <caret line="86" column="7" lean-forward="false" selection-start-line="86" selection-start-column="7" selection-end-line="86" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,7 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,15 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/automationSystem/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1079,10 +1074,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/views.py">
+    <entry file="uml://DATABASE/bdecc7f6-d465-44ba-8c50-8b864c36ae37">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>bdecc7f6-d465-44ba-8c50-8b864c36ae37</OriginalElement>
+          <nodes>
+            <node x="1010.3194444444443" y="560.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_user_permissions</node>
+            <node x="239.0" y="1057.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_migrations</node>
+            <node x="1259.75" y="500.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_admin_log</node>
+            <node x="763.0" y="1057.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.loading</node>
+            <node x="608.4999999999999" y="560.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group_permissions</node>
+            <node x="458.0" y="1057.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_session</node>
+            <node x="1143.7777777777776" y="0.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_content_type</node>
+            <node x="282.875" y="836.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.load</node>
+            <node x="0.0" y="274.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.magistrant</node>
+            <node x="1024.3194444444443" y="154.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user</node>
+            <node x="631.7314814814813" y="262.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group</node>
+            <node x="811.9259259259258" y="238.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_permission</node>
+            <node x="0.0" y="1057.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.article</node>
+            <node x="831.4999999999999" y="560.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_groups</node>
+            <node x="20.0" y="1259.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.comments</node>
+            <node x="243.1875" y="0.0">bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.teacher</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_groups" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group">
+              <point x="-39.25" y="-52.0" />
+              <point x="870.7499999999999" y="470.0" />
+              <point x="732.2314814814813" y="470.0" />
+              <point x="33.5" y="40.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_permission" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_content_type">
+              <point x="0.0" y="-64.0" />
+              <point x="898.9259259259258" y="129.0" />
+              <point x="1188.2777777777776" y="129.0" />
+              <point x="-44.5" y="52.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.comments" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.article">
+              <point x="0.0" y="-52.0" />
+              <point x="0.0" y="76.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group_permissions" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_permission">
+              <point x="50.75" y="-52.0" />
+              <point x="760.7499999999999" y="480.0" />
+              <point x="855.4259259259258" y="480.0" />
+              <point x="-43.5" y="64.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.magistrant" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.teacher">
+              <point x="-123.5" y="-256.0" />
+              <point x="123.5" y="249.0" />
+              <point x="285.5208333333333" y="249.0" />
+              <point x="-84.66666666666669" y="112.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.load" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.magistrant">
+              <point x="-53.5" y="-88.0" />
+              <point x="336.375" y="811.0" />
+              <point x="247.0" y="811.0" />
+              <point x="0.0" y="256.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_groups" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user">
+              <point x="39.25" y="-52.0" />
+              <point x="949.2499999999999" y="480.0" />
+              <point x="1076.6527777777776" y="480.0" />
+              <point x="-104.66666666666674" y="148.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_user_permissions" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_permission">
+              <point x="-57.0" y="-52.0" />
+              <point x="1067.3194444444443" y="470.0" />
+              <point x="942.4259259259258" y="470.0" />
+              <point x="43.5" y="64.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.load" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.teacher">
+              <point x="53.5" y="-88.0" />
+              <point x="443.375" y="811.0" />
+              <point x="504.5" y="811.0" />
+              <point x="504.5" y="249.0" />
+              <point x="454.8541666666667" y="249.0" />
+              <point x="84.66666666666669" y="112.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user_user_permissions" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user">
+              <point x="57.0" y="-52.0" />
+              <point x="0.0" y="148.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group_permissions" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_group">
+              <point x="-50.75" y="-52.0" />
+              <point x="659.2499999999999" y="480.0" />
+              <point x="665.2314814814813" y="480.0" />
+              <point x="-33.5" y="40.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_admin_log" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.auth_user">
+              <point x="-63.5" y="-112.0" />
+              <point x="1323.25" y="480.0" />
+              <point x="1285.986111111111" y="480.0" />
+              <point x="104.66666666666674" y="148.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.teacher" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.magistrant">
+              <point x="0.0" y="112.0" />
+              <point x="123.5" y="-256.0" />
+            </edge>
+            <edge source="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_admin_log" target="bdecc7f6-d465-44ba-8c50-8b864c36ae37.TABLE:magistr.django_content_type">
+              <point x="63.5" y="-112.0" />
+              <point x="1450.25" y="129.0" />
+              <point x="1277.2777777777776" y="129.0" />
+              <point x="44.5" y="52.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.42733188720173537" x="758.0" y="941.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/load.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="81" column="28" lean-forward="false" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+        <state relative-caret-position="288">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/magistrants.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/automationSystem/automationSystem/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/templates/MagistrantInformAll.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="47" column="42" lean-forward="false" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1100,10 +1235,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="dbDummy://dbtable:/e5e680ca/bdecc7f6-d465-44ba-8c50-8b864c36ae37/magistr.teacher">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/automationSystem/addMagistrants/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding />
         </state>
       </provider>

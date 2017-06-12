@@ -28,25 +28,24 @@ def teachers(request):
 #def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
 #    args = {}
 #    args.update(csrf(request))
-
+#working
 def MagistrantInfoemAll (request, magistrant_id=1, teacher_id=1):
      args = {}
      args.update(csrf(request))
      args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
-    # args['Themagistrant'] = Magistrant.objects.filter(magistrant_ThemeOfMagistrWork=magistrant_id)
-   #  args['NumberOrder'] = Magistrant.objects.filter(magistrant_NumberOrder=magistrant_id)
-     magAD = Magistrant.objects.all()
-     teacher = Teacher.objects.all()
+     args['teacherName'] = Teacher.objects.get(id=teacher_id)
      return render_to_response('MagistrantInformAll.html', args)
 
-#def MagistrantInfoemAll (request, magistrant_id=1):
+#def MagistrantInfoemAll (request, magistrant_id):
 #    args = {}
 #    args.update(csrf(request))
-#   # args['teacher'] = Teacher.objects.get(id=teacher_id)
-#    #args['magistrant'] = Magistrant.objects.filter(magistrant_ScientificAdviser_id=teacher_id)
-#   # args['teacherName'] = Teacher.objects.filter(teacher_name=args['magistrant'])
+
 #    args['magistrant'] = Magistrant.objects.get(id=magistrant_id)
-#    args['teacher'] = Teacher.objects.get(id=teacher_id)
+#    args['teacher'] = Teacher.objects.all()
+#    #args['teacherName'] = Teacher.objects.get(id=magistrant_id)
+#    return render_to_response('MagistrantInformAll.html', args)
+
+
 
  #   return render_to_response('MagistrantInformAll.html', args)
 
@@ -59,13 +58,13 @@ def TeacherMagistr(request, teacher_id=1):
     for magistrant in mag:
         if magistrant.magistrant_StudyPeriod == u'2-х годичная':
             if magistrant.magistarnt_TypeOfTraning == u'Очное':
-                magistrant.magistrant_Load = (20 -1) * 3 + 1.5
+                magistrant.magistrant_Load = (20 -1) * 3 + 0.5
             else:
-                magistrant.magistrant_Load = (25 - 1) * 3 + 1.5
+                magistrant.magistrant_Load = (25 - 1) * 3 + 0.5
             magistrant.save()
         else:
             if magistrant.magistarnt_TypeOfTraning == u'Очное':
-                magistrant.magistrant_Load = (10 - 1) * 3 + 1.5
+                magistrant.magistrant_Load = (10 - 1) * 3 + 0.5
             else:
                 magistrant.magistrant_Load = 10 * 3
             magistrant.save()
